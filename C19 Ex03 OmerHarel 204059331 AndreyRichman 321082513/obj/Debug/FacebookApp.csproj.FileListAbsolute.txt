@@ -1,0 +1,12 @@
+C:\Users\omerha\Desktop\dp-ex3\C19 Ex02 OmerHarel 204059331 AndreyRichman 321082513\obj\Debug\FacebookApp.csprojAssemblyReference.cache
+C:\Users\omerha\Desktop\dp-ex3\C19 Ex02 OmerHarel 204059331 AndreyRichman 321082513\obj\Debug\C19_Ex01_Omer_204059331_Andrey_321082513.sln.MainPage.resources
+C:\Users\omerha\Desktop\dp-ex3\C19 Ex02 OmerHarel 204059331 AndreyRichman 321082513\obj\Debug\C19_Ex01_Omer_204059331_Andrey_321082513.sln.Properties.Resources.resources
+C:\Users\omerha\Desktop\dp-ex3\C19 Ex02 OmerHarel 204059331 AndreyRichman 321082513\obj\Debug\FacebookApp.csproj.GenerateResource.cache
+C:\Users\omerha\Desktop\dp-ex3\C19 Ex02 OmerHarel 204059331 AndreyRichman 321082513\obj\Debug\FacebookApp.csproj.CoreCompileInputs.cache
+C:\Users\omerha\Desktop\dp-ex3\C19 Ex02 OmerHarel 204059331 AndreyRichman 321082513\bin\Debug\C19 Ex01 Omer 204059331 Andrey 321082513.sln.exe
+C:\Users\omerha\Desktop\dp-ex3\C19 Ex02 OmerHarel 204059331 AndreyRichman 321082513\bin\Debug\C19 Ex01 Omer 204059331 Andrey 321082513.sln.pdb
+C:\Users\omerha\Desktop\dp-ex3\C19 Ex02 OmerHarel 204059331 AndreyRichman 321082513\bin\Debug\Facebook.dll
+C:\Users\omerha\Desktop\dp-ex3\C19 Ex02 OmerHarel 204059331 AndreyRichman 321082513\bin\Debug\FbGraphApiWrapper.dll
+C:\Users\omerha\Desktop\dp-ex3\C19 Ex02 OmerHarel 204059331 AndreyRichman 321082513\obj\Debug\FacebookApp.csproj.CopyComplete
+C:\Users\omerha\Desktop\dp-ex3\C19 Ex02 OmerHarel 204059331 AndreyRichman 321082513\obj\Debug\C19 Ex01 Omer 204059331 Andrey 321082513.sln.exe
+C:\Users\omerha\Desktop\dp-ex3\C19 Ex02 OmerHarel 204059331 AndreyRichman 321082513\obj\Debug\C19 Ex01 Omer 204059331 Andrey 321082513.sln.pdb

@@ -56,7 +56,8 @@ namespace FacebookApp
             else
             {
                 LoginResult = FacebookService.Login(
-                    "1450160541956417",
+                    //"1450160541956417",
+                    "753926335063958",
                     "public_profile",
                     "email",
                     "publish_to_groups",
@@ -173,11 +174,11 @@ namespace FacebookApp
         public void FetchUserData(UserData i_UserData)
         {
             ThreadStart starter = new ThreadStart(() => getAllUserFriends(i_UserData));
-            starter += () =>
+            /*starter += () =>
             {
                 getAllTaggedFriendsFromCheckins(i_UserData);
                 getAllTaggedFriendsFromPhotos(i_UserData);
-            };
+            };*/
             Thread thread = new Thread(starter) { IsBackground = true };
             thread.Start();
             getAllTheNoEmptyAlbums(i_UserData);
@@ -197,112 +198,6 @@ namespace FacebookApp
             }
         }
 
-        private string getUserFullName(User i_User)
-        {
-            string name;
-            try
-            {
-                name = i_User.FirstName + " " + i_User.LastName;
-            }
-            catch (Exception)
-            {
-                name = i_User.Name;
-            }
-
-            return name;
-        }
-
-        private void collectUsersFromTag(PhotoTag i_Tag, UserData i_UserData)
-        {
-            string currUserNameAsKey = string.Empty;
-            currUserNameAsKey = getUserFullName(i_Tag.User);
-            if(checkIfFriendIsNotLocalUser(i_UserData.LocalUser, i_Tag.User))
-            {
-                return;
-            }
-
-            if (i_UserData.BestFriendsDict.ContainsKey(currUserNameAsKey))
-            {
-                i_UserData.BestFriendsDict[currUserNameAsKey] += 1;
-            }
-            else
-            {
-                i_UserData.BestFriendsDict.Add(currUserNameAsKey, 1);
-            }
-        }
-
-        private bool checkIfFriendIsNotLocalUser(User i_LocalUser, User i_FriendUser)
-        {
-            bool isLocalUser = false;
-            string currLoggedInUserFullName = getUserFullName(i_LocalUser);
-            string friendFullName = getUserFullName(i_FriendUser);
-            isLocalUser = friendFullName == currLoggedInUserFullName;
-            return isLocalUser;
-        }
-
-        private void getAllTaggedFriendsFromPhotos(UserData i_UserData)
-        {
-            foreach (Album currAlbum in i_UserData.Albums)
-            {
-                try
-                {
-                    foreach (Photo currPhoto in currAlbum.Photos)
-                    {
-                        if (currPhoto.Tags != null)
-                        {
-                            try
-                            {
-                                foreach (PhotoTag currPhotoTag in currPhoto.Tags)
-                                {
-                                    collectUsersFromTag(currPhotoTag, i_UserData);
-                                }
-                            }
-                            catch (Facebook.FacebookOAuthException)
-                            {
-                                continue;
-                            }
-                        }
-                    }
-                }
-                catch (Facebook.FacebookOAuthException)
-                {
-                    continue;
-                }
-            }
-        }
-
-        private void getAllTaggedFriendsFromCheckins(UserData i_UserData)
-        {
-            string currUserNameAsKey = string.Empty;
-            try
-            {
-                foreach (Checkin currCheckin in i_UserData.LocalUser.Checkins)
-                {
-                    foreach (User currUser in currCheckin.TaggedUsers)
-                    {
-                        currUserNameAsKey = getUserFullName(currUser);
-                        if (checkIfFriendIsNotLocalUser(i_UserData.LocalUser, currUser))
-                        {
-                            continue;
-                        }
-
-                        if (i_UserData.BestFriendsDict.ContainsKey(currUserNameAsKey))
-                        {
-                            i_UserData.BestFriendsDict[currUserNameAsKey] += 1;
-                        }
-                        else
-                        {
-                            i_UserData.BestFriendsDict.Add(currUserNameAsKey, 1);
-                        }
-                    }
-                }
-            }
-            catch (Facebook.FacebookOAuthException)
-            {
-                System.Console.WriteLine("Facebook auth error");
-            }
-        }
-
         private void getAllUserFriends(UserData i_UserData)
         {
             foreach (User user in i_UserData.LocalUser.Friends)
@@ -311,10 +206,8 @@ namespace FacebookApp
             }
         }
 
-        public List<string> GetTopFiveBestFriends(UserData i_UserData)
-        {
-            return new List<string>(i_UserData.OrderDictByValueInt(i_UserData.BestFriendsDict).Keys);
-        }
+
+   
 
         public void LogOutFromFacebook()
         {

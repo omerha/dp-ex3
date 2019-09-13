@@ -9,7 +9,8 @@ namespace FacebookApp
 {
     public class UserData
     {
-        public Dictionary<string, int> BestFriendsDict { get; set; }
+        public Dictionary<string, int> TopFriendsDict { get; set; }
+
 
         private List<Post> m_NewsFeed;
 
@@ -161,7 +162,7 @@ namespace FacebookApp
         public UserData(User i_User)
         {
             LocalUser = i_User;
-            BestFriendsDict = new Dictionary<string, int>();
+            TopFriendsDict = new Dictionary<string, int>();
         }
 
         public void FetchNewsFeed()
@@ -272,10 +273,42 @@ namespace FacebookApp
             }
         }
 
-        public Dictionary<string, int> OrderDictByValueInt(Dictionary<string, int> i_Dict)
+        private string getUserFullName(User i_User)
         {
-            Dictionary<string, int> resDict = i_Dict.OrderByDescending(r => r.Value).Take(5).ToDictionary(pair => pair.Key, pair => pair.Value);
-            return resDict;
+            string name;
+            try
+            {
+                name = i_User.FirstName + " " + i_User.LastName;
+            }
+            catch (Exception)
+            {
+                name = i_User.Name;
+            }
+
+            return name;
+        }
+
+        public void addDataToUserFriendsDict(User i_FriendUser, int i_NumToAdd = 1)
+        {
+            string currUserNameAsKey = getUserFullName(i_FriendUser);
+            if (checkIfFriendIsNotLocalUser(LocalUser, i_FriendUser))
+            {
+                return;
+            }
+
+            if (TopFriendsDict.ContainsKey(currUserNameAsKey))
+            {
+                TopFriendsDict[currUserNameAsKey] += i_NumToAdd;
+            }
+            else
+            {
+                TopFriendsDict.Add(currUserNameAsKey, i_NumToAdd);
+            }
+        }
+
+        private bool checkIfFriendIsNotLocalUser(User i_LocalUser, User i_FriendUser)
+        {
+            return getUserFullName(i_LocalUser) == getUserFullName(i_FriendUser);
         }
     }
 }

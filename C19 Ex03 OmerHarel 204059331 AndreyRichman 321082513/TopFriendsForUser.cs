@@ -11,11 +11,17 @@ namespace C19_Ex01_Omer_204059331_Andrey_321082513.sln
     {
         public List<string> TopList { get; set; }
 
+        private FriendsSorter m_FriendsSorter;
         object ITopWantedItem.TopList { get => TopList; set => throw new NotImplementedException(); }
 
+        public TopFriendsForUser(FriendsSorter i_FriendsSorter)
+        {
+            m_FriendsSorter = i_FriendsSorter;
+        }
         public void GetData(AppLogic i_AppLogic, UserData i_UserData)
         {
-            TopList = i_AppLogic.GetTopFiveBestFriends(i_UserData);
+            m_FriendsSorter.LocalUserData = i_UserData;
+            TopList = m_FriendsSorter.GetTopFriends();
         }
     }
 }

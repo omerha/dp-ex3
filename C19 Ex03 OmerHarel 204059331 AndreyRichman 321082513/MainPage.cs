@@ -31,7 +31,7 @@ namespace C19_Ex01_Omer_204059331_Andrey_321082513.sln
                 userPostsBindingSource.DataSource = i_User.Statuses;
                 friendsBindingSource.DataSource = i_User.Friends;
                 eventsCreatedBindingSource.DataSource = i_User.Events;
-                bestFriendsBindingSource.DataSource = i_User.BestFriendsDict;
+                bestFriendsBindingSource.DataSource = i_User.TopFriendsDict;
             }
         }
 
@@ -72,18 +72,6 @@ namespace C19_Ex01_Omer_204059331_Andrey_321082513.sln
             updateUserPanel(m_UserData);
             updateAllPanels(m_UserData);
             Text = "Welcome To Facebook!";
-        }
-
-        private void buttonPost_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                m_AppLogic.PostStatus(textBoxPostStatus.Text, m_UserData.LocalUser);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("There was error trying to post status");
-            }
         }
 
         private void buttonPostOnAllFriends_Click(object sender, EventArgs e)

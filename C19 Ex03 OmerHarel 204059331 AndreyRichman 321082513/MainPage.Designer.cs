@@ -187,6 +187,7 @@
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.pageSetupDialog2 = new System.Windows.Forms.PageSetupDialog();
             this.likedByBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             nameLabel = new System.Windows.Forms.Label();
             birthdayLabel = new System.Windows.Forms.Label();
             aboutLabel = new System.Windows.Forms.Label();
@@ -1595,6 +1596,7 @@
             // 
             // panelBestFriends
             // 
+            this.panelBestFriends.Controls.Add(this.button1);
             this.panelBestFriends.Controls.Add(this.labelTopTitle);
             this.panelBestFriends.Controls.Add(this.listBoxTops);
             this.panelBestFriends.Controls.Add(this.buttonTopPages);
@@ -1630,10 +1632,10 @@
             this.buttonTopPages.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
             this.buttonTopPages.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTopPages.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTopPages.Location = new System.Drawing.Point(26, 270);
+            this.buttonTopPages.Location = new System.Drawing.Point(26, 228);
             this.buttonTopPages.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTopPages.Name = "buttonTopPages";
-            this.buttonTopPages.Size = new System.Drawing.Size(208, 56);
+            this.buttonTopPages.Size = new System.Drawing.Size(208, 43);
             this.buttonTopPages.TabIndex = 30;
             this.buttonTopPages.Text = "Top pages";
             this.buttonTopPages.UseVisualStyleBackColor = true;
@@ -1645,10 +1647,10 @@
             this.buttonTopEvents.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
             this.buttonTopEvents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTopEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTopEvents.Location = new System.Drawing.Point(26, 179);
+            this.buttonTopEvents.Location = new System.Drawing.Point(26, 159);
             this.buttonTopEvents.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTopEvents.Name = "buttonTopEvents";
-            this.buttonTopEvents.Size = new System.Drawing.Size(208, 56);
+            this.buttonTopEvents.Size = new System.Drawing.Size(208, 43);
             this.buttonTopEvents.TabIndex = 28;
             this.buttonTopEvents.Text = "Top events";
             this.buttonTopEvents.UseVisualStyleBackColor = true;
@@ -1663,9 +1665,9 @@
             this.buttonTopFriends.Location = new System.Drawing.Point(26, 90);
             this.buttonTopFriends.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTopFriends.Name = "buttonTopFriends";
-            this.buttonTopFriends.Size = new System.Drawing.Size(208, 56);
+            this.buttonTopFriends.Size = new System.Drawing.Size(208, 43);
             this.buttonTopFriends.TabIndex = 27;
-            this.buttonTopFriends.Text = "Top friends";
+            this.buttonTopFriends.Text = "Top best friends";
             this.buttonTopFriends.UseVisualStyleBackColor = true;
             this.buttonTopFriends.Click += new System.EventHandler(this.buttonTop_Click);
             // 
@@ -1724,6 +1726,21 @@
             // 
             this.likedByBindingSource1.DataMember = "LikedBy";
             this.likedByBindingSource1.DataSource = this.userPostsBindingSource;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Aqua;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(26, 296);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(208, 43);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "Top famous friends";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.buttonTop_Click);
             // 
             // MainPage
             // 
@@ -1925,5 +1942,6 @@
         private System.Windows.Forms.Label nameLabel3;
         private System.Windows.Forms.Label labelTopTitle;
         private System.Windows.Forms.ListBox nameListBox;
+        private System.Windows.Forms.Button button1;
     }
 }

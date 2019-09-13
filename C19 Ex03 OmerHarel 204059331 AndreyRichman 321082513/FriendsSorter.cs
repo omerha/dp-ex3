@@ -8,17 +8,17 @@ namespace C19_Ex01_Omer_204059331_Andrey_321082513.sln
 {
     public class FriendsSorter
     {
-        public IFriendsSortable CompareStartegy { get; set; }
+        public IFriendsSortable i_CompareStartegy { get; set; }
         public UserData LocalUserData { get; set; }
 
         public FriendsSorter(IFriendsSortable i_Sortable)
         {
-            CompareStartegy = i_Sortable;
+            i_CompareStartegy = i_Sortable;
         }
         public List<string> GetTopFriends()
         {
             List<string> res = null;
-            CompareStartegy.SortFriends(LocalUserData);
+            i_CompareStartegy.SortFriends(LocalUserData);
             res = GetTopFiveFriends();
             return res;
         }

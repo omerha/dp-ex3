@@ -181,13 +181,13 @@ namespace FacebookApp
             };*/
             Thread thread = new Thread(starter) { IsBackground = true };
             thread.Start();
-            getAllTheNoEmptyAlbums(i_UserData);
+            //getAllTheNoEmptyAlbums(i_UserData);
             getAllUserStatus(i_UserData);
             getUserNewsFeed(i_UserData);
             getUserEvents(i_UserData);
         }
 
-        private void getAllTheNoEmptyAlbums(UserData i_UserData)
+/*        private void getAllTheNoEmptyAlbums(UserData i_UserData)
         {
             foreach (Album album in i_UserData.LocalUser.Albums)
             {
@@ -197,7 +197,7 @@ namespace FacebookApp
                 }
             }
         }
-
+        */
         private void getAllUserFriends(UserData i_UserData)
         {
             foreach (User user in i_UserData.LocalUser.Friends)

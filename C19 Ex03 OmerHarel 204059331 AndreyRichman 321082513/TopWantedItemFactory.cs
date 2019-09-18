@@ -4,6 +4,7 @@ namespace C19_Ex01_Omer_204059331_Andrey_321082513.sln
 {
     public static class TopWantedItemFactory
     {
+  
         public static ITopWantedItem Build(string i_WantedItem)
         {
             ITopWantedItem res = null;

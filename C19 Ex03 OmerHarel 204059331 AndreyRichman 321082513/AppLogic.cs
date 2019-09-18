@@ -113,47 +113,6 @@ namespace FacebookApp
             return res;
         }
 
-        private void getAllUserStatus(UserData i_UserData)
-        {
-            foreach (Status currStatus in i_UserData.LocalUser.Statuses)
-            {
-                i_UserData.Statuses.Add(currStatus);
-            }
-        }
-
-        private void getUserNewsFeed(UserData i_UserData)
-        {
-            if (i_UserData.LocalUser.NewsFeed != null)
-            {
-                foreach (Post post in i_UserData.LocalUser.NewsFeed)
-                {
-                    i_UserData.NewsFeed.Add(post);
-                }
-            }
-        }
-
-        private void getUserPages(UserData i_UserData)
-        {
-            if (i_UserData.LocalUser.LikedPages != null)
-            {
-                foreach (Page page in i_UserData.LocalUser.LikedPages)
-                {
-                    i_UserData.Pages.Add(page);
-                }
-            }
-        }
-        
-        private void getUserEvents(UserData i_UserData)
-        {
-            if (i_UserData.LocalUser.Events != null)
-            {
-                foreach (Event userEvent in i_UserData.LocalUser.Events)
-                {
-                    i_UserData.Events.Add(userEvent);
-                }
-            }
-        }
-
         public User FindFriendByName(string i_friendNameToFind, UserData i_UserData)
         {
             User friend = null;
@@ -173,41 +132,19 @@ namespace FacebookApp
 
         public void FetchUserData(UserData i_UserData)
         {
-            ThreadStart starter = new ThreadStart(() => getAllUserFriends(i_UserData));
+            //ThreadStart starter = new ThreadStart(() => getAllUserFriends(i_UserData));
             /*starter += () =>
             {
                 getAllTaggedFriendsFromCheckins(i_UserData);
                 getAllTaggedFriendsFromPhotos(i_UserData);
             };*/
-            Thread thread = new Thread(starter) { IsBackground = true };
-            thread.Start();
-            getAllTheNoEmptyAlbums(i_UserData);
-            getAllUserStatus(i_UserData);
-            getUserNewsFeed(i_UserData);
-            getUserEvents(i_UserData);
+            //Thread thread = new Thread(starter) { IsBackground = true };
+            //thread.Start();
+            
+            //getAllUserStatus(i_UserData);
+            //getUserNewsFeed(i_UserData);
+            //getUserEvents(i_UserData);
         }
-
-        private void getAllTheNoEmptyAlbums(UserData i_UserData)
-        {
-            foreach (Album album in i_UserData.LocalUser.Albums)
-            {
-                if (album.Count != 0)
-                {
-                    i_UserData.Albums.Add(album);
-                }
-            }
-        }
-
-        private void getAllUserFriends(UserData i_UserData)
-        {
-            foreach (User user in i_UserData.LocalUser.Friends)
-            {
-                i_UserData.Friends.Add(user);
-            }
-        }
-
-
-   
 
         public void LogOutFromFacebook()
         {

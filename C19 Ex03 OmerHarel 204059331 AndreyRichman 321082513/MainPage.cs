@@ -16,11 +16,13 @@ namespace C19_Ex01_Omer_204059331_Andrey_321082513.sln
         private AppLogic m_AppLogic;
         private UserData m_UserData;
         private ITopWantedItem i_TopWantedItem;
+        ButtonColorSwapVisitor m_ButtonColorSwapper = new ButtonColorSwapVisitor();
 
         public MainPage()
         {
             InitializeComponent();
             m_AppLogic = AppLogic.Instance;
+
         }
 
         private void updateAllPanels(UserData i_User)
@@ -101,8 +103,12 @@ namespace C19_Ex01_Omer_204059331_Andrey_321082513.sln
         private void buttonTop_Click(object sender, EventArgs e)
         {
             i_TopWantedItem = TopWantedItemFactory.Build((sender as Button).Text);
-            i_TopWantedItem.GetData(m_AppLogic, m_UserData);
+               i_TopWantedItem.ButtonColorSwapper = m_ButtonColorSwapper;
+               i_TopWantedItem.Accept(sender as Button);
+               i_TopWantedItem.GetData(m_AppLogic, m_UserData);
             listBoxTops.DisplayMember = "Name";
+
+ 
             listBoxTops.DataSource = i_TopWantedItem.TopList;
             labelTopTitle.Text = (sender as Button).Text;
         }

@@ -20,6 +20,8 @@ namespace C19_Ex01_Omer_204059331_Andrey_321082513.sln
                
         }
 
+        
+
         private void countFriendsNumOfPhotos(UserData i_UserData, User i_Friend)
         {
             foreach (Album currAlbum in i_Friend.Albums)

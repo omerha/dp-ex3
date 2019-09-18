@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="AppLogic.cs" />
     <Compile Include="BestFriendsSorterStartegy.cs" />
+    <Compile Include="ButtonColorSwapVisitor.cs" />
     <Compile Include="IFriendsSortable.cs" />
     <Compile Include="ITopWantedItem.cs" />
     <Compile Include="MainPage.cs">

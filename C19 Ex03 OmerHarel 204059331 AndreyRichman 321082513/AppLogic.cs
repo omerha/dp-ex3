@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -144,6 +144,25 @@ namespace FacebookApp
             //getAllUserStatus(i_UserData);
             //getUserNewsFeed(i_UserData);
             //getUserEvents(i_UserData);
+        }
+
+/*        private void getAllTheNoEmptyAlbums(UserData i_UserData)
+        {
+            foreach (Album album in i_UserData.LocalUser.Albums)
+            {
+                if (album.Count != 0)
+                {
+                    i_UserData.Albums.Add(album);
+                }
+            }
+        }
+        */
+        private void getAllUserFriends(UserData i_UserData)
+        {
+            foreach (User user in i_UserData.LocalUser.Friends)
+            {
+                i_UserData.Friends.Add(user);
+            }
         }
 
         public void LogOutFromFacebook()

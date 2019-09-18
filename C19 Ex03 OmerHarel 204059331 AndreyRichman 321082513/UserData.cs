@@ -97,6 +97,17 @@ namespace FacebookApp
             }
         }
 
+        public IEnumerable<Album> GetNonEmptyAlbums()
+        {
+           foreach (Album currAlbum in LocalUser.Albums)
+           {
+                if (currAlbum.Count != 0)
+                {
+                    yield return currAlbum;
+                }
+}
+        }
+
         private List<Status> m_Statuses;
 
         public List<Status> Statuses

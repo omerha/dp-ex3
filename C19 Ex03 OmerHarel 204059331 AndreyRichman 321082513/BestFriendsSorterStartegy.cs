@@ -17,7 +17,7 @@ namespace C19_Ex01_Omer_204059331_Andrey_321082513.sln
 
         private void getAllTaggedFriendsFromPhotos(UserData i_UserData)
         {
-            foreach (Album currAlbum in i_UserData.Albums)
+            foreach (Album currAlbum in i_UserData.GetNonEmptyAlbums())
             {
                 try
                 {
